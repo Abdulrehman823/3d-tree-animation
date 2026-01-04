@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> 3D Rotating Tree</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e8e8e8;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tree{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg);
+    animation: treeanimate 8s linear infinite;
+}
+.tree div{
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateY(calc(75px * var(--x))) translateZ(0px);
+
+}
+.tree div.branch span{
+    position: absolute;
+    background: linear-gradient(90deg, #0d5a0d, #145214);
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    top: 0;
+    left: 0;
+    border-bottom: 10px solid #00000033;
+    transform-origin: bottom;
+    transform: rotateY(calc(90deg * var(--i))) rotateX(30deg) translateZ(85px);
+    box-shadow: 0 0 20px #0d5a0d60;
+}
+.tree div.stem span{
+    position: absolute;
+    background: linear-gradient(90deg, #4b2e0b, #3b1f07);
+    width: 40px;
+    height: 50%;
+    top: 330px;
+    left: calc(50% - 20px);
+    border-bottom: 10px solid #4b2e0b;
+    transform: rotateY(calc(90deg * var(--i))) translateZ(20px);
+    transform-origin: bottom;
+}
+.shadow{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transform-style: preserve-3d;
+    filter: blur(50px);
+    transform: rotateX(90deg) translateZ(-190px);
+    border-radius: 50%;
+}
+@keyframes treeanimate{
+    0%{
+        transform: rotateX(-20deg) rotateY(360deg);
+    }
+    100%{
+        transform: rotateX(-20deg) rotateY(0deg);
+
+    }
+}</style>
+</head>
+<body>
+
+<!-- REMOVE -->
+  <h1>“Your one subscribe motivates me 1000%.”</h1>
+  <a href="https://www.youtube.com/@coding_professor" 
+     target="_blank" 
+     style="display:inline-block; padding:12px 25px; background:red; color:white; 
+            text-decoration:none; border-radius:6px; font-size:18px; font-family:sans-serif;">
+    Subscribe Now
+  </a>
+  <!-- REMOVE -->
+
+    <div class="container">
+        <div class="tree">
+            <div class="branch" style="--x:0;">
+                <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+            </div>
+
+            <div class="branch" style="--x:1;">
+                <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+            </div>
+
+            <div class="branch" style="--x:2;">
+                <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+            </div>
+
+            <div class="branch" style="--x:3;">
+                <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+            </div>
+
+    
+    <div class="stem">
+        <span style="--i:0;"></span>
+                <span style="--i:1;"></span>
+                <span style="--i:2;"></span>
+                <span style="--i:3;"></span>
+    </div>
+
+    <span class="shadow"></span>
+        </div>
+    </div>
+
+</body>
+</html>
